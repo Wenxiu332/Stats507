@@ -7,20 +7,20 @@ table1 = pd.read_sas('/Users/echoliao/Downloads/DEMO_G.XPT')
 table2 = pd.read_sas('/Users/echoliao/Downloads/DEMO_H.XPT')
 table3 = pd.read_sas('/Users/echoliao/Downloads/DEMO_I.XPT')
 table4 = pd.read_sas('/Users/echoliao/Downloads/DEMO_J.XPT')
-table1 = table1[["SEQN", "RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
+table1 = table1[["SEQN", "RIAGENDR","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
                 "RIDSTATR", "SDMVPSU", "SDMVSTRA", "WTMEC2YR", "WTINT2YR"]]
-table2 = table2[["SEQN","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
+table2 = table2[["SEQN","RIAGENDR","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
                 "RIDSTATR", "SDMVPSU", "SDMVSTRA", "WTMEC2YR", "WTINT2YR"]]
-table3 = table3[["SEQN","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
+table3 = table3[["SEQN","RIAGENDR","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
                 "RIDSTATR", "SDMVPSU", "SDMVSTRA", "WTMEC2YR", "WTINT2YR"]]
-table4 = table4[["SEQN","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
+table4 = table4[["SEQN","RIAGENDR","RIDAGEYR","RIDRETH3","DMDEDUC2","DMDMARTL",
                 "RIDSTATR", "SDMVPSU", "SDMVSTRA", "WTMEC2YR", "WTINT2YR"]]
 table1["year"] = pd.Series("2011-2012" for x in range(len(table1.index)))
 table2["year"] = pd.Series("2013-2014" for x in range(len(table2.index)))
 table3["year"] = pd.Series("2015-2016" for x in range(len(table3.index)))
 table4["year"] = pd.Series("2017-2018" for x in range(len(table4.index)))
 res = table1.append([table2, table3, table4])
-res.rename({"SEQN": "unique_id", "RIDAGEYR":"age",
+res.rename({"SEQN": "unique_id", "RIAGENDR":"gender","RIDAGEYR":"age",
             "RIDRETH3":"race_and_ethnicity","DMDEDUC2":"education","DMDMARTL":"marital status",
                 "RIDSTATR":"interview/examination_status",
                 "SDMVPSU":"masked_variance_pseudo_psu",
