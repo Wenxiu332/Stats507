@@ -30,6 +30,27 @@ import feather
 # ## Question 1
 
 def listOfTuples(n, k=3, low = 0, high = 5):
+    """
+    Generate a list of n tuples of length tup_size of integers low to high.
+
+    Parameters
+    ----------
+    n : integer
+        The number of tuples in the list.
+    tup_size : integer, optional
+        The length of the tuples created. The default is 3.
+    low : integer, optional
+        The low end of the range to generate integers from.
+    high : integer, optional
+        The high end of hte range to generate integers from.
+    rng: A random number generator object, e.g. from np.random.default_rng().
+        If None, one is created within the context of the function.
+    
+    Returns
+    -------
+    A list of length `n` with tuples of size `tup_size` consting of uniform
+    random integers in [low, high).
+    """
     res = [tuple(np.random.randint(low, high, size = k)) for i in range(n)]
     return res
 result = listOfTuples(5)
@@ -41,6 +62,22 @@ assert(all(isinstance(item, tuple) for item in result) and isinstance(result, li
 # ### a
 
 def listofbigtup(sample_list):
+    """
+    Find tuples with maximum value in one position by unique value in another.
+    
+    Among all tuples in `tuple_list` sharing a common value in the `by`
+    position, find those also having maximum value in the `max_of` position. 
+
+    Parameters
+    ----------
+    tuple_list : list of tuples
+        The list of tuples to organize as described above.
+    
+    Returns
+    -------
+    A list of all tuples, where, for each unique `by` value, the maximum
+    value in the `max_of` position is achieved.
+    """
     first_index = 0
     last_index = len(sample_list[0])-1
     op = []
@@ -58,6 +95,22 @@ def listofbigtup(sample_list):
 # ### b
 
 def improvedlistofbigtup(sample_list):
+    """
+    Find tuples with maximum value in one position by unique value in another.
+    
+    Among all tuples in `tuple_list` sharing a common value in the `by`
+    position, find those also having maximum value in the `max_of` position. 
+
+    Parameters
+    ----------
+    tuple_list : list of tuples
+        The list of tuples to organize as described above.
+   
+    Returns
+    -------
+    A list of all tuples, where, for each unique `by` value, the maximum
+    value in the `max_of` position is achieved.
+    """
     first_index = 0
     last_index = len(sample_list[0])-1
     op = []
@@ -74,6 +127,22 @@ def improvedlistofbigtup(sample_list):
 # ### c
 
 def newlistofbigtup(sample_list):
+    """
+    Find tuples with maximum value in one position by unique value in another.
+    
+    Among all tuples in `tuple_list` sharing a common value in the `by`
+    position, find those also having maximum value in the `max_of` position. 
+
+    Parameters
+    ----------
+    tuple_list : list of tuples
+        The list of tuples to organize as described above.
+    
+    Returns
+    -------
+    A list of all tuples, where, for each unique `by` value, the maximum
+    value in the `max_of` position is achieved.
+    """
     mydict = {}
     res = []
     last_index = len(sample_list[0])-1
